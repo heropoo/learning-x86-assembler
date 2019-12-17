@@ -8,7 +8,7 @@ $(VHD_FILE): mbr.bin
 	VBoxManage convertfromraw mbr.bin $(VHD_FILE) --format VHD --variant Fixed
 
 mbr.bin: $(ASM_FILE)
-	nasm -f bin $(ASM_FILE) -o mbr.bin 
+	nasm -f bin $(ASM_FILE) -o mbr.bin -l mbr.list
 
 run: $(VHD_FILE) change-vm-vhd
 	VBoxManage startvm $(VM_NAME)
@@ -38,4 +38,4 @@ delete-vm:
 	-VBoxManage unregistervm --delete $(VM_NAME)
 
 clean :
-	-rm -rf *.vhd *.bin
+	-rm -rf *.vhd *.bin *.list
