@@ -12,7 +12,7 @@ run: $(VHD_FILE)
 	qemu-system-i386 -m 64 -drive file=$(VHD_FILE),if=ide,format=raw
 
 mbr.bin: $(ASM_FILE)
-	nasm -f bin $(ASM_FILE) -o mbr.bin -l mbr.list
+	nasm -f bin $(ASM_FILE) -o mbr.bin -l mbr.lst
 
 clean :
-	-rm -rf *.img *.bin *.list
+	-rm -rf *.img *.bin *.lst
