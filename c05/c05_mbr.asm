@@ -41,9 +41,7 @@ mov bx,10                     ;bx保存被除数,div指令使用bx寄存器的�
 mov cx,cs
 mov ds,cx
 
-;32位除法中，被除数的低16位在ax寄存器中，高16位在dx寄存器中
-;前面已经将number的地址赋值给ax，下面将dx清零
-;求个位上的数字
+;32位除法中，被除数的低16位在ax寄存器中，高16位在dx寄存器中;前面已经将number的地址赋值给ax，下面将dx清零;求个位上的数字
 mov dx,0
 div bx
 mov [0x7c00+number+0x00],dl   ;保存个位上的数字
